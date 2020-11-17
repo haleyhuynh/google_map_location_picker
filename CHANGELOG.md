@@ -1,3 +1,7 @@
+## 4.1.2+2-dev.1
+
+* Fixed an issue with intl pre versions.
+
 ## 4.1.2+1
 
 * Fixed an issue with the sample app.
