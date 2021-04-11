@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d3131e35-c104-4e80-be80-c669988a6cf2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/google_map_location_picker.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/google_map_location_picker.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/map.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/map.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,5 +45,11 @@
       <updated>1618152254086</updated>
     </task>
     <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="672" y="296" width="615" height="490" key="find.popup" timestamp="1618172985148">
+      <screen x="61" y="23" width="1859" height="1057" />
+    </state>
+    <state x="672" y="296" width="615" height="490" key="find.popup/61.23.1859.1057@61.23.1859.1057" timestamp="1618172985148" />
   </component>
 </project>
