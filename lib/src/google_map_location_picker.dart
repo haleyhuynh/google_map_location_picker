@@ -199,7 +199,8 @@ class LocationPickerState extends State<LocationPicker> {
             aci.length = t['matched_substrings'][0]['length'];
 
             suggestions.add(RichSuggestion(aci, () {
-              decodeAndSelectPlace(aci.id);
+              print(aci);
+              decodeAndSelectPlace(aci.id, aci.text);
             }));
           }
         }
@@ -214,7 +215,7 @@ class LocationPickerState extends State<LocationPicker> {
   /// To navigate to the selected place from the autocomplete list to the map,
   /// the lat,lng is required. This method fetches the lat,lng of the place and
   /// proceeds to moving the map to that location.
-  void decodeAndSelectPlace(String placeId) {
+  void decodeAndSelectPlace(String placeId, String address) {
     clearOverlay();
 
     String endpoint =
@@ -231,7 +232,7 @@ class LocationPickerState extends State<LocationPicker> {
 
         LatLng latLng = LatLng(location['lat'], location['lng']);
 
-        moveToLocation(latLng);
+        moveToLocation(latLng, placeId, address);
       }
     }).catchError((error) {
       print(error);
@@ -360,8 +361,9 @@ class LocationPickerState extends State<LocationPicker> {
 
   /// Moves the camera to the provided location and updates other UI features to
   /// match the location.
-  void moveToLocation(LatLng latLng) {
+  void moveToLocation(LatLng latLng, String placeId, String address) {
     mapKey.currentState.mapController.future.then((controller) {
+      print("map move");
       controller.animateCamera(
         CameraUpdate.newCameraPosition(
           CameraPosition(
@@ -372,7 +374,13 @@ class LocationPickerState extends State<LocationPicker> {
       );
     });
 
-    reverseGeocodeLatLng(latLng);
+    setState(() {
+      locationResult = LocationResult();
+      locationResult.address = address;
+      locationResult.latLng = latLng;
+      locationResult.placeId = placeId;
+    });
+    // reverseGeocodeLatLng(latLng);
 
     getNearbyPlaces(latLng);
   }
@@ -404,27 +412,26 @@ class LocationPickerState extends State<LocationPicker> {
               hintText: widget.hintText,
             ),
           ),
-          body: MapPicker(
-            widget.apiKey,
-            initialCenter: widget.initialCenter,
-            initialZoom: widget.initialZoom,
-            requiredGPS: widget.requiredGPS,
-            myLocationButtonEnabled: widget.myLocationButtonEnabled,
-            layersButtonEnabled: widget.layersButtonEnabled,
-            automaticallyAnimateToCurrentLocation:
-                widget.automaticallyAnimateToCurrentLocation,
-            mapStylePath: widget.mapStylePath,
-            appBarColor: widget.appBarColor,
-            searchBarBoxDecoration: widget.searchBarBoxDecoration,
-            hintText: widget.hintText,
-            resultCardConfirmIcon: widget.resultCardConfirmIcon,
-            resultCardAlignment: widget.resultCardAlignment,
-            resultCardDecoration: widget.resultCardDecoration,
-            resultCardPadding: widget.resultCardPadding,
-            key: mapKey,
-            language: widget.language,
-            desiredAccuracy: widget.desiredAccuracy,
-          ),
+          body: MapPicker(widget.apiKey,
+              initialCenter: widget.initialCenter,
+              initialZoom: widget.initialZoom,
+              requiredGPS: widget.requiredGPS,
+              myLocationButtonEnabled: widget.myLocationButtonEnabled,
+              layersButtonEnabled: widget.layersButtonEnabled,
+              automaticallyAnimateToCurrentLocation:
+                  widget.automaticallyAnimateToCurrentLocation,
+              mapStylePath: widget.mapStylePath,
+              appBarColor: widget.appBarColor,
+              searchBarBoxDecoration: widget.searchBarBoxDecoration,
+              hintText: widget.hintText,
+              resultCardConfirmIcon: widget.resultCardConfirmIcon,
+              resultCardAlignment: widget.resultCardAlignment,
+              resultCardDecoration: widget.resultCardDecoration,
+              resultCardPadding: widget.resultCardPadding,
+              key: mapKey,
+              language: widget.language,
+              desiredAccuracy: widget.desiredAccuracy,
+              selectedLocationResult: locationResult),
         );
       }),
     );

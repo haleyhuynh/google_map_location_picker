@@ -38,6 +38,7 @@ class MapPicker extends StatefulWidget {
     this.resultCardPadding,
     this.language,
     this.desiredAccuracy,
+    this.selectedLocationResult,
   }) : super(key: key);
 
   final String apiKey;
@@ -63,6 +64,7 @@ class MapPicker extends StatefulWidget {
   final String language;
 
   final LocationAccuracy desiredAccuracy;
+  final LocationResult selectedLocationResult;
 
   @override
   MapPickerState createState() => MapPickerState();
@@ -82,6 +84,8 @@ class MapPickerState extends State<MapPicker> {
   String _address;
 
   String _placeId;
+
+  var userDragging = false;
 
   void _onToggleMapTypePressed() {
     final MapType nextType =
@@ -163,39 +167,46 @@ class MapPickerState extends State<MapPicker> {
     return Center(
       child: Stack(
         children: <Widget>[
-          GoogleMap(
-            myLocationButtonEnabled: false,
-            initialCameraPosition: CameraPosition(
-              target: widget.initialCenter,
-              zoom: widget.initialZoom,
-            ),
-            onMapCreated: (GoogleMapController controller) {
-              mapController.complete(controller);
-              //Implementation of mapStyle
-              if (widget.mapStylePath != null) {
-                controller.setMapStyle(_mapStyle);
-              }
+          Listener(
+            onPointerDown: (e) {
+              userDragging = true;
+            },
+            child: GoogleMap(
+              myLocationButtonEnabled: false,
+              initialCameraPosition: CameraPosition(
+                target: widget.initialCenter,
+                zoom: widget.initialZoom,
+              ),
+              onMapCreated: (GoogleMapController controller) {
+                mapController.complete(controller);
+                //Implementation of mapStyle
+                if (widget.mapStylePath != null) {
+                  controller.setMapStyle(_mapStyle);
+                }
 
-              _lastMapPosition = widget.initialCenter;
-              LocationProvider.of(context, listen: false)
-                  .setLastIdleLocation(_lastMapPosition);
-            },
-            onCameraMove: (CameraPosition position) {
-              _lastMapPosition = position.target;
-            },
-            onCameraIdle: () async {
-              print("onCameraIdle#_lastMapPosition = $_lastMapPosition");
-              LocationProvider.of(context, listen: false)
-                  .setLastIdleLocation(_lastMapPosition);
-            },
-            onCameraMoveStarted: () {
-              print("onCameraMoveStarted#_lastMapPosition = $_lastMapPosition");
-            },
+                _lastMapPosition = widget.initialCenter;
+                LocationProvider.of(context, listen: false)
+                    .setLastIdleLocation(_lastMapPosition);
+              },
+              onCameraMove: (CameraPosition position) {
+                _lastMapPosition = position.target;
+              },
+              onCameraIdle: () async {
+                print("onCameraIdle#_lastMapPosition = $_lastMapPosition");
+                LocationProvider.of(context, listen: false)
+                    .setLastIdleLocation(_lastMapPosition);
+                print("map idle");
+              },
+              onCameraMoveStarted: () {
+                print(
+                    "onCameraMoveStarted#_lastMapPosition = $_lastMapPosition");
+              },
 //            onTap: (latLng) {
 //              clearOverlay();
 //            },
-            mapType: _currentMapType,
-            myLocationEnabled: true,
+              mapType: _currentMapType,
+              myLocationEnabled: true,
+            ),
           ),
           _MapFabs(
             myLocationButtonEnabled: widget.myLocationButtonEnabled,
@@ -236,6 +247,7 @@ class MapPickerState extends State<MapPicker> {
                         ],
                       ),
                       builder: (context, data) {
+                        userDragging = false;
                         _address = data["address"];
                         _placeId = data["placeId"];
                         return Text(
@@ -271,7 +283,14 @@ class MapPickerState extends State<MapPicker> {
   }
 
   Future<Map<String, String>> getAddress(LatLng location) async {
+    print(userDragging);
     try {
+      if (!userDragging) {
+        return {
+          "placeId": widget.selectedLocationResult.placeId,
+          "address": widget.selectedLocationResult.address
+        };
+      }
       final endPoint =
           'https://maps.googleapis.com/maps/api/geocode/json?latlng=${location?.latitude},${location?.longitude}'
           '&key=${widget.apiKey}&language=${widget.language}';
@@ -361,7 +380,7 @@ class MapPickerState extends State<MapPicker> {
                 S.of(context)?.allow_access_to_the_location_services ??
                     'Allow access to the location services.'),
             actions: <Widget>[
-              FlatButton(
+              TextButton(
                 child: Text(S.of(context)?.ok ?? 'Ok'),
                 onPressed: () {
                   Navigator.of(context, rootNavigator: true).pop();
@@ -395,7 +414,7 @@ class MapPickerState extends State<MapPicker> {
                     ?.allow_access_to_the_location_services_from_settings ??
                 'Allow access to the location services for this App using the device settings.'),
             actions: <Widget>[
-              FlatButton(
+              TextButton(
                 child: Text(S.of(context)?.ok ?? 'Ok'),
                 onPressed: () {
                   Navigator.of(context, rootNavigator: true).pop();
@@ -426,7 +445,7 @@ class MapPickerState extends State<MapPicker> {
                       ?.please_make_sure_you_enable_gps_and_try_again ??
                   'Please make sure you enable GPS and try again'),
               actions: <Widget>[
-                FlatButton(
+                TextButton(
                   child: Text('Ok'),
                   onPressed: () {
                     final AndroidIntent intent = AndroidIntent(
