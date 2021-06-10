@@ -31,7 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "ok" : MessageLookupByLibrary.simpleMessage("Ok"),
     "please_check_your_connection" : MessageLookupByLibrary.simpleMessage("Please check your connection"),
     "please_make_sure_you_enable_gps_and_try_again" : MessageLookupByLibrary.simpleMessage("Please make sure you enable GPS and try again"),
-    "search_place" : MessageLookupByLibrary.simpleMessage("Search place"),
+    "search_place" : MessageLookupByLibrary.simpleMessage("Search address"),
     "server_error" : MessageLookupByLibrary.simpleMessage("Server error"),
     "unnamedPlace" : MessageLookupByLibrary.simpleMessage("Unnamed place")
   };

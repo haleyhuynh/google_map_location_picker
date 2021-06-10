@@ -251,9 +251,7 @@ class MapPickerState extends State<MapPicker> {
                         _address = data["address"];
                         _placeId = data["placeId"];
                         return Text(
-                          _address ??
-                              S.of(context)?.unnamedPlace ??
-                              'Unnamed place',
+                          _address ?? '',
                           style: TextStyle(fontSize: 18),
                         );
                       },
