@@ -5,13 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3131e35-c104-4e80-be80-c669988a6cf2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Runner/AppDelegate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Runner/AppDelegate.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_en.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/intl/messages_en.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/l10n.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/l10n.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/l10n/intl_en.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/intl_en.arb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/map.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/map.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/search_input.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/search_input.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/humazed/google_map_location_picker/GoogleMapLocationPickerPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/humazed/google_map_location_picker/GoogleMapLocationPickerPlugin.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/app/src/main/kotlin/com/humazed/google_map_location_picker_example/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/src/main/kotlin/com/humazed/google_map_location_picker_example/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/Flutter/flutter_export_environment.sh" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Flutter/flutter_export_environment.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +36,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
@@ -54,63 +63,5 @@
       <updated>1618152254086</updated>
     </task>
     <servers />
-  </component>
-  <component name="WindowStateProjectService">
-    <state width="555" height="466" key="DebuggerActiveHint" timestamp="1623279875072">
-      <screen x="54" y="23" width="1866" height="1057" />
-    </state>
-    <state width="555" height="466" key="DebuggerActiveHint/54.23.1866.1057@54.23.1866.1057" timestamp="1623279875072" />
-    <state width="1327" height="345" key="GridCell.Tab.0.bottom" timestamp="1623291619591">
-      <screen x="54" y="23" width="1866" height="1057" />
-    </state>
-    <state width="1327" height="345" key="GridCell.Tab.0.bottom/54.23.1866.1057@54.23.1866.1057" timestamp="1623291619591" />
-    <state width="1327" height="345" key="GridCell.Tab.0.center" timestamp="1623291619591">
-      <screen x="54" y="23" width="1866" height="1057" />
-    </state>
-    <state width="1327" height="345" key="GridCell.Tab.0.center/54.23.1866.1057@54.23.1866.1057" timestamp="1623291619591" />
-    <state width="1327" height="345" key="GridCell.Tab.0.left" timestamp="1623291619591">
-      <screen x="54" y="23" width="1866" height="1057" />
-    </state>
-    <state width="1327" height="345" key="GridCell.Tab.0.left/54.23.1866.1057@54.23.1866.1057" timestamp="1623291619591" />
-    <state width="1327" height="345" key="GridCell.Tab.0.right" timestamp="1623291619591">
-      <screen x="54" y="23" width="1866" height="1057" />
-    </state>
-    <state width="1327" height="345" key="GridCell.Tab.0.right/54.23.1866.1057@54.23.1866.1057" timestamp="1623291619591" />
-    <state x="507" y="195" width="741" height="666" key="find.popup" timestamp="1623291818366">
-      <screen x="54" y="23" width="1866" height="1057" />
-    </state>
-    <state x="507" y="195" width="741" height="666" key="find.popup/54.23.1866.1057@54.23.1866.1057" timestamp="1623291818366" />
-    <state x="672" y="296" width="615" height="490" key="find.popup/61.23.1859.1057@61.23.1859.1057" timestamp="1618185342864" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/src/google_map_location_picker.dart</url>
-          <line>201</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/src/google_map_location_picker.dart</url>
-          <line>229</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/src/google_map_location_picker.dart</url>
-          <line>234</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/src/google_map_location_picker.dart</url>
-          <line>382</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/src/google_map_location_picker.dart</url>
-          <line>354</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
